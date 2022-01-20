@@ -38,6 +38,8 @@ for pfile in pfiles:
     print(orig_filename + "\t>>>\t" + filename)
     print(pfile + "\t>>>\t" + target_path)
     
+    #move(pfile, target_path)
+    
     print("*******************************************************************")
 
     
