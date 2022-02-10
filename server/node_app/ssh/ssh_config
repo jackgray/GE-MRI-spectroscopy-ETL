@@ -1,0 +1,7 @@
+Host sdc
+    Hostname 156.111.80.32
+    User sdc
+    IdentityFile /etc/ssh/id_rsa
+    CheckHostIP no
+    Compression yes
+    GlobalKnownHostsFile /etc/ssh/ssh_known_hosts

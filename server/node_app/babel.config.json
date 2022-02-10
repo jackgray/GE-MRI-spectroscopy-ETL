@@ -1,0 +1,12 @@
+// Allows "await" to be used outside of functions (useful for zx shell scripting)
+{
+    "exclude": "/node_modules/",
+    "use": {
+        "loader": "babel-loader",
+        "options": {
+        "plugins": [
+            "@babel/plugin-syntax-top-level-await"
+            ]
+        }
+    }
+}
