@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Organize files inside MRS_purgatory into their respective projects
+# Runs after run.sh which handles rsync from MRI linux machine
 pGlob=$(ls /MRI_DATA/nyspi/MRS_purgatory/*/*/*/*.7)
 pFiles=(`echo $pGlob | tr ' ' ' '`)
 
@@ -14,7 +15,7 @@ do
 
     printf "\n\nProject: ${project} \nSubject: ${subject} \nExam: ${exam} \nFile: ${fileName} \n"
     
-    dstParent=/MRI_DATA/nyspi/${project}/derivatives/MRS
+    dstParent=/MRI_DATA/nyspi/${project}/MRS
     dstFolder=${dstParent}/${subject}/${exam}
     dstFilePath=${dstFolder}/${fileName}
     echo -e "\n-Creating directories ${project}/MRS/${subject}/${exam}"

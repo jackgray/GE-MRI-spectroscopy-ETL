@@ -2,4 +2,4 @@
 
 import App from "./src/app.mjs"
 
-await App()
+App()

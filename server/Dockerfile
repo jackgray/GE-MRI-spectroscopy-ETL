@@ -3,11 +3,7 @@ FROM node:16 AS build-env
 USER root
 COPY /node_app /app
 WORKDIR /app
-RUN npm ci --only=production && \
-    mv /app/ssh /etc/ssh && \
-    chmod 600 /etc/ssh/ssh_config
-
-# FROM busybox:stable AS shell
+RUN npm ci --only=production
 
 # Install rsync to minimal linux then copy bin to distroless node image
 FROM alpine:latest AS alpine
@@ -18,8 +14,7 @@ FROM gcr.io/distroless/nodejs:16
 
 COPY --from=build-env /app /app
 COPY --from=alpine /bin /bin
-COPY --from=alpine /usr/bin/rsync /bin
-COPY --from=build-env /etc/ssh /etc/ssh
+
 WORKDIR /app
 
 CMD ["index.mjs"]
